@@ -22,13 +22,14 @@ Le pattern singleton peut être obtenu de nombreuses façons en Ruby. On présen
 
 Ces six techniques peuvent être retrouvées au fil des [nombreux](https://practicingruby.com/articles/shared/jleygxejeopq) [articles](http://selfless-singleton.rickwinfrey.com/2012/12/19/singleton-pattern-metaprogramming-remix/) sur [le sujet](http://dalibornasevic.com/posts/9-ruby-singleton-pattern-again).
 
-Il est conseillé de parcourir ces six essais du plus simple au plus échevelé :   
-1. [singleton-stdlib.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-stdlib.rb)  
-2. [singleton-metaclass.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-metaclass.rb)  
-3. [singleton-attr.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-attr.rb)  
-4. [singleton-module.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-module.rb)  
-5. [singleton-object.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-object.rb)  
-6. [singleton-last.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-last.rb)  
+Il est conseillé de parcourir ces six essais du plus simple au plus échevelé :
+
+1. [singleton-stdlib.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-stdlib.rb)
+2. [singleton-metaclass.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-metaclass.rb)
+3. [singleton-attr.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-attr.rb)
+4. [singleton-module.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-module.rb)
+5. [singleton-object.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-object.rb)
+6. [singleton-last.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/singleton/singleton-last.rb)
 
 ### Mémo-classes ###
 
