@@ -12,7 +12,7 @@ class Hermit
 
   # On redéfinit la méthode instance de la méta-classe de Hermit pour qu'elle retourne l'instance stockée.
   def self.instance
-    return @@instance
+    @@instance
   end
 
   def talk
