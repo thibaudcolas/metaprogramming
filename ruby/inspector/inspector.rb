@@ -8,15 +8,23 @@ module Inspector
 
   include XMLSerializer
 
+  def self.include_into something
+    something.class.instance_eval {include Inspector}
+  end
+
   def self.serialize something
+    include_into something
     p something.to_yaml
     # On ajoute la ligne "include Inspector" à something.
-    something.class.instance_eval {include Inspector}
     p something.to_xml
     p Marshal.dump something
   end
-end
 
+  # Copie profonde en sérialisant / désérialisant.
+  def self.deep_copy something
+    Marshal.load(Marshal.dump something)
+  end
+end
 
 # Tests.
 
@@ -35,3 +43,4 @@ end
 c = Couple.new "2", 5
 
 Inspector.serialize c
+
