@@ -40,3 +40,15 @@ Les mémo-classes s'approchent du design pattern [Multiton](https://en.wikipedia
 1. [memoclass-attr.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/memoclass/memoclass-attr.rb)
 2. [memoclass-module.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/memoclass/memoclass-module.rb)
 3. [memoclass-objectspace.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/memoclass/memoclass-objectspace.rb)
+
+### Inspecteur d'objets ###
+
+Objectif : définir une fonction inspect-object qui permette d'afficher le type d'un objet et les noms / valeurs de ses attributs.
+
+En Ruby, toutes les fonctions de base d'un inspecteur d'objet sont définies dès l'origine dans le langage. Il est donc très facile de les réutiliser pour construire en [quelques lignes](https://github.com/seeingidog/deeper) des [inspecteurs d'objet](https://github.com/ongaeshi/rubywho) puissants.
+
+Ici, on définit un module `Inspector` qui affiche toutes sortes d'informations sur un objet donné et qui permet d'en effectuer une copie profonde et de le sérialiser de différentes manières.
+
+1. [xmlserializer.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/xmlserializer.rb)
+2. [example.xml](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/example.xml)
+3. [inspector.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/inspector.rb)
