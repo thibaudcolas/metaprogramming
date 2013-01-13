@@ -37,3 +37,12 @@ b.talk
 
 p Memo.last_instance
 p Memo.all_instances
+
+test = []
+p test
+test << "ds"
+test << String
+p test
+p test[0]
+p test[1]
+test[0].see
