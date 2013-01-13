@@ -7,6 +7,11 @@ Langages utilisés :
 - Java
 - Ruby
 
+Expérimentations réalisées :
+- Design pattern singleton
+- Classes qui mémorisent leurs instances
+- Inspecteur d'objets
+
 ## CLOS ##
 
 CLOS (Common Lisp Object System) est un ensemble d'opérateurs pour faire de la programmation orientée objet en Lisp. Ces opérateurs ne sont pas séparés du reste de Common Lisp mais historiquement on les regroupe tout de même.
@@ -20,6 +25,17 @@ CLOS et son MOP (MetaObject Protocol) sont un bon terrain pour faire de la méta
 En CLOS, la façon la plus simple de créer des singletons est de créer une méta-classe possédant un slot étant l'instance à mémoriser. Cette implémentation est d'ailleurs [très répandue](http://www.tfeb.org/lisp/hax.html#SINGLETON-CLASSES). Les classes singleton n'auront alors plus qu'à définir comme méta-classe la classe des classes qui n'ont qu'une seule instance.
 
 - [singleton-class.lisp](https://github.com/ThibWeb/metaprogramming/blob/master/clos/singleton/singleton-class.lisp)
+
+### Mémo-classes ###
+
+Objectif : Définir la classe `memo-class` des classes qui mémorisent leurs instances. Pour simplifier, on pourra lui associer la classe `memo-object` des objets qui sont mémorisés par leur classe.
+
+CLOS tire parti des méta-classes pour stocker les instances de chaque classe étant un mémo-object.
+
+- [memoclass.lisp](https://github.com/ThibWeb/metaprogramming/blob/master/clos/memoclass/memoclass.lisp)
+
+### Inspecteur d'objets ###
+
 
 ## Java ##
 
@@ -39,6 +55,11 @@ Tests :
 1. [TestEnumSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/TestEnumSingleton.java)
 2. [TestClassicSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/TestClassicSingleton.java)
 
+### Mémo-classes ###
+
+Objectif : Définir la classe `memo-class` des classes qui mémorisent leurs instances. Pour simplifier, on pourra lui associer la classe `memo-object` des objets qui sont mémorisés par leur classe.
+
+### Inspecteur d'objets ###
 
 ## Ruby ##
 
