@@ -7,6 +7,39 @@ Langages utilisés :
 - Java
 - Ruby
 
+## CLOS ##
+
+CLOS (Common Lisp Object System) est un ensemble d'opérateurs pour faire de la programmation orientée objet en Lisp. Ces opérateurs ne sont pas séparés du reste de Common Lisp mais historiquement on les regroupe tout de même.
+
+CLOS et son MOP (MetaObject Protocol) sont un bon terrain pour faire de la métaprogrammation.
+
+- [ANSI Common Lisp](http://www.paulgraham.com/acl.html), Paul Graham
+
+### Singleton ###
+
+En CLOS, la façon la plus simple de créer des singletons est de créer une méta-classe possédant un slot étant l'instance à mémoriser. Cette implémentation est d'ailleurs [très répandue](http://www.tfeb.org/lisp/hax.html#SINGLETON-CLASSES). Les classes singleton n'auront alors plus qu'à définir comme méta-classe la classe des classes qui n'ont qu'une seule instance.
+
+- [singleton-class.lisp](https://github.com/ThibWeb/metaprogramming/blob/master/clos/singleton/singleton-class.lisp)
+
+## Java ##
+
+En Java, la métaprogrammation se fait par le biais de la librairie standard `java.lang.reflect`. Java n'est pas un langage tourné vers la métaprogrammation, mais grâce à cette API il demeure possible de métaprogrammer.
+
+### Singleton ###
+
+Le design pattern Singleton est très commun en Java, et est par exemple utilisé pour `java.lang.Runtime` ou `java.awt.Desktop`. Si sa mise en place ne nécessite pas d'utiliser la métaprogrammation, il est intéressant de savoir comment l'en protéger : comment empêcher l'utilisation de l'API reflect pour créer deux instances d'un supposé singleton.
+
+On considère donc deux approches : l'une, très simple, permise par les structures [`enum`](http://stackoverflow.com/questions/5735797/is-this-singleton-resistant-to-both-serialization-and-reflection-attacks)) de Java > 1.5, et l'autre [plus classique](http://technonstop.com/java-singleton-reflection-and-lazy-initialization) avec une initialisation tardive et un double verrouillage.
+
+1. [EnumSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/EnumSingleton.java)
+2. [ClassicSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/ClassicSingleton.java)
+
+Tests :
+
+1. [TestEnumSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/TestEnumSingleton.java)
+2. [TestClassicSingleton.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/singleton/TestClassicSingleton.java)
+
+
 ## Ruby ##
 
 Ruby est assez intéressant car il implémente nativement la notion de méta-classe (appelées en Ruby _singleton classes_ ou _eigenclasses_).
