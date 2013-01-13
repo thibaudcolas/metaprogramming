@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Généré avec XMLSerializer. -->
+<Couple>
+<arr type="Array">
+<item type="Fixnum" value="0"/>
+<item type="String" value="1"/>
+<item type="Fixnum" value="2"/>
+<item type="String" value="3"/>
+<item type="TrueClass" value="true"/>
+<item type="NilClass" value=""/>
+</arr>
+<two type="Fixnum">5</two>
+<one type="String">2</one>
+</Couple>
