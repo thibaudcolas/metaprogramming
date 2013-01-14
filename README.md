@@ -59,6 +59,8 @@ Tests :
 
 Objectif : Définir la classe `memo-class` des classes qui mémorisent leurs instances. Pour simplifier, on pourra lui associer la classe `memo-object` des objets qui sont mémorisés par leur classe.
 
+- [MemoObject.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/memoclass/MemoObject.java)
+
 ### Inspecteur d'objets ###
 
 ## Ruby ##
