@@ -9,12 +9,12 @@ Langages utilisés :
 
 Expérimentations réalisées :
 - Design pattern singleton
-- Classes qui mémorisent leurs instances
+- Classes qui mémorisent leurs instances (mémo-classes)
 - Inspecteur d'objets
 
 ## CLOS ##
 
-CLOS (Common Lisp Object System) est un ensemble d'opérateurs pour faire de la programmation orientée objet en Lisp. Ces opérateurs ne sont pas séparés du reste de Common Lisp mais historiquement on les regroupe tout de même.
+CLOS (Common Lisp Object System) est un ensemble d'opérateurs pour faire de la programmation orientée objets en Lisp. Ces opérateurs ne sont pas séparés du reste de Common Lisp mais historiquement on les regroupe tout de même.
 
 CLOS et son MOP (MetaObject Protocol) sont un bon terrain pour faire de la métaprogrammation.
 
