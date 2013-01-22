@@ -48,3 +48,20 @@
 ; alors que foo et bar y sont, leurs instances seront différentes.
 (setf fizz (make-instance 'test))
 (setf buzz (make-instance 'test))
+
+(defclass person ()
+  ((name
+    :accessor name
+    :initform ""
+    :initarg :name
+    :reader to_s))
+  (:metaclass singleton-class)
+  )
+
+; Différence entre setf et setq :
+; (setq symbol value) Gives each variable symbol the value of the corresponding value expression.
+; (setf place value) A generalization of setq : stores in the location associated with each place the value of the corresponding value expression.
+; Plus d'infos : ANSI Common Lisp, Paul Graham.
+
+(setq eve (make-instance `person :name `Eve))
+(setq lea (make-instance `person :name `Lea))
