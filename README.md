@@ -37,6 +37,7 @@ CLOS tire parti des méta-classes pour stocker les instances de chaque classe é
 
 ### Inspecteur d'objets ###
 
+TODO
 
 ## Java ##
 
