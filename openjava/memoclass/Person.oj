@@ -1,0 +1,25 @@
+// Classe Person dont la métaclasse est MemoClass.
+public class Person instantiates MemoClass {
+	private String name;
+	private String firstName;
+
+	public Person(String name, String firstName) {
+		this.name = name;
+		this.firstName = firstName;
+	}
+
+	public void eat(String something) {
+		System.out.println(this.firstName + " eats " + something + ".");
+	}
+
+	public static void main(String[] args) {
+		Person eve = new Person("Dupont", "Eve");
+		Person lea = new Person("Durand", "Lea");
+		Person tim = new Person("Berners Lee", "Tim");
+		Person tom = new Person("Hanks", "Tom");
+
+		affInstances();
+	}
+
+}
+

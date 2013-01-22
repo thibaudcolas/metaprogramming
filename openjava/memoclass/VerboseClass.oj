@@ -1,0 +1,14 @@
+import openjava.mop.*;
+import openjava.ptree.*;
+public class VerboseClass instantiates Metaclass extends OJClass
+{
+    public void translateDefinition() throws MOPException {
+        OJMethod[] methods = getDeclaredMethods();
+        for (int i = 0; i < methods.length; ++i) {
+            Statement printer = makeStatement(
+                "System.out.println( \"" + methods[i] + " is called.\" );"
+            );
+            methods[i].getBody().insertElementAt( printer, 0 );
+        }
+    }
+}

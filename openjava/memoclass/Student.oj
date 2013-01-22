@@ -1,0 +1,23 @@
+// Classe Student dont la métaclasse est MemoClass.
+public class Student instantiates MemoClass extends Person {
+
+  public int studentNumber;
+
+  public Student(String name, String firstName, int studentNumber) {
+    super(name, firstName);
+    this.studentNumber = studentNumber;
+  }
+
+  public void study(String something) {
+    System.out.println("I study " + something + ".");
+  }
+
+  public static void main(String[] args) {
+    Student joe = new Student("Black", "Joe", 500);
+    Student lea = new Student("Gillmore", "Pat", 3453);
+
+    affInstances();
+  }
+
+}
+

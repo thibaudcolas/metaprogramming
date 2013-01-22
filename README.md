@@ -6,6 +6,7 @@ Langages utilisés :
 - CLOS
 - Java
 - Ruby
+- OpenJava
 
 Expérimentations réalisées :
 - Design pattern singleton
@@ -108,3 +109,17 @@ Ici, on définit un module `Inspector` qui affiche toutes sortes d'informations 
 1. [xmlserializer.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/xmlserializer.rb)
 2. [example.xml](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/example.xml)
 3. [inspector.rb](https://github.com/ThibWeb/metaprogramming/blob/master/ruby/inspector/inspector.rb)
+
+## OpenJava ##
+
+[OpenJava](http://www.csg.is.titech.ac.jp/openjava/) (mainteant OJ) est un langage basé sur Java, qui lui ajoute un MOP. OpenJava est relativement ancien (2002), mais son apport au Java vanilla reste toujours intéressant.
+
+Projets liés : [OpenC++](http://www.csg.is.titech.ac.jp/~chiba/openc++.html) et [Javassist](http://www.csg.is.titech.ac.jp/~chiba/javassist/)
+
+### Mémo-classes ###
+
+En OpenJava, les mémo-classes sont simulées en créant une méta-classe qui ajoutera à ses instances un attribut `instances` et une méthode `getInstances`.
+
+1. [MemoClass.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/MemoClass.oj)
+2. [Person.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/Person.oj)
+3. [Student.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/Student.oj)

@@ -1,0 +1,84 @@
+import openjava.mop.*;
+import openjava.ptree.*;
+import openjava.syntax.*;
+
+
+public class MemoClass instantiates Metaclass extends OJClass {
+
+    public void translateDefinition() throws MOPException {
+
+			// file:///Users/Will/Desktop/Nouveau%20dossier/openJava/final/OpenJava_1.1/htdocs/openjava/mop/OJField.html
+			// private static java.lang.String instances;
+			OJField instances = new OJField(this, OJModifier.forModifier(OJModifier.STATIC).add(OJModifier.PRIVATE), OJSystem.STRING, "instances");
+			addField(instances);
+
+			// Définit un statement (ligne de code) qui affiche instances.
+			StatementList affInstancesBody = new StatementList();
+			// System.out.println( instances );
+			affInstancesBody.add(makeStatement("System.out.println( instances );"));
+
+			// file:///Users/Will/Desktop/Nouveau%20dossier/openJava/final/OpenJava_1.1/htdocs/openjava/mop/OJMethod.html
+			// public static void affInstances() { System.out.println( instances ); }
+			OJMethod affInstances = new OJMethod(this, OJModifier.forModifier(OJModifier.STATIC).add(OJModifier.PUBLIC), OJSystem.VOID, "affInstances", new ParameterList(), null, affInstancesBody);
+			addMethod(affInstances);
+
+			// Instanciation tardive de instances à mettre dans le constructeur.
+			IfStatement lazyInstantiation = new IfStatement(
+				// if (Personne.instances == null)
+				new BinaryExpression(
+					new FieldAccess(this, "instances"), BinaryExpression.EQUAL, Literal.constantNull()
+				),
+				// Corps du if
+				new StatementList(
+					new ExpressionStatement(
+						new AssignmentExpression(
+							// Personne.instances = new java.lang.String( "" );
+							new FieldAccess(this, "instances"), "AssignmentExpression.EQUALS", new AllocationExpression(OJSystem.STRING, new ExpressionList(Literal.constantEmptyString())))
+						)
+					)
+				);
+
+			StatementList instancesManager = new StatementList();
+			instancesManager.add(lazyInstantiation);
+
+
+			// Ajout de l'instance courante à la liste des instances.
+			ExpressionStatement instanceClassName = new ExpressionStatement(
+					new AssignmentExpression(
+						// Personne.instances += nom;
+						new FieldAccess(this, "instances"), "+=", Literal.makeLiteral("{" + getSimpleName() + ">" + getSuperclass().getSimpleName() +  ": "))
+					);
+
+			instancesManager.add(instanceClassName);
+
+			OJField[] fields = getAllFields();
+			String fieldName;
+			for (int i = 0; i < fields.length; i++) {
+				fieldName = fields[i].getName();
+				if (!fieldName.equals("instances")) {
+					instancesManager.add(new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", Literal.makeLiteral(fieldName + "="))));
+					instancesManager.add(new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", new FieldAccess(fieldName))));
+					instancesManager.add(new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", Literal.makeLiteral(","))));
+				}
+			}
+
+			OJMethod[] methods = getDeclaredMethods();
+			String methodName;
+			for (int i = 0; i < methods.length; i++) {
+				methodName = methods[i].getName();
+				if (!methodName.equals("affInstances")) {
+					instancesManager.add(new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", Literal.makeLiteral(methodName + ","))));
+				}
+			}
+
+			ExpressionStatement instanceClassNameEnd = new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", Literal.makeLiteral("},\\n")));
+
+			instancesManager.add(instanceClassNameEnd);
+
+			// Pour tous les constructeurs de la classe,
+			OJConstructor[] constructor = getDeclaredConstructors();
+		  for (int i = 0; i < constructor.length; i++) {
+				constructor[i].getBody().addAll(instancesManager);
+			}
+    }
+}
