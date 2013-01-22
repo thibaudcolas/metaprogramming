@@ -58,3 +58,7 @@
             :initform 4))
   (:metaclass standard-class)
 )
+
+(setq ex (make-instance 'polygone))
+
+(example-inspect ex)
