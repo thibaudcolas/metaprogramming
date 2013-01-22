@@ -17,9 +17,10 @@ module Kernel
 end
 
 module Inspector
-
+  # Inclut le module de serialisation précédemment défini.
   include XMLSerializer
 
+  # Va appeler toutes les autres méthodes pour nous.
   def self.inspect_object something
     puts "Inspection de #{something} :"
     puts "---------------------------------------------------------------------"
@@ -85,14 +86,15 @@ module Inspector
     puts "- #{attribute}, #{value.class}, valeur : #{value.inspect}"
   end
 
+  # Permet d'inclure notre module dans une classe / un module pour pouvoir l'inspecter.
   def self.include_into something
     something.class.instance_eval {include Inspector}
   end
 
   def self.serialize something
+    # On ajoute la ligne "include Inspector" à something.
     include_into something
     p something.to_yaml
-    # On ajoute la ligne "include Inspector" à something.
     p something.to_xml
     p Marshal.dump something
   end
