@@ -27,9 +27,9 @@
 ; ---------------------------------------------------------------------
 
 ; singleton peut être superclasse de singleton.
-(defmethod validate-superclass ((class singleton-class) (sup singleton-class)) t
+(defmethod validate-superclass ((class singleton-class) (sup singleton-class)) t)
 ; standard-class peut être superclasse de singleton.
-(defmethod validate-superclass ((class singleton-class) (sup standard-class)) t))
+(defmethod validate-superclass ((class singleton-class) (sup standard-class)) t)
 ; standard-class ne peut pas être une sous-classe de singleton.
 (defmethod validate-superclass ((class standard-class) (sup singleton-class)) nil)
 
