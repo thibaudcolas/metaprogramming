@@ -4,8 +4,7 @@
 
 (defclass singleton-class (standard-class)
   ; L'instance, par défaut nil.
-  ((instance :initform nil
-             :accessor get-instance))
+  ((instance :initform nil))
   )
 
 ; Création des instances / initialisation.
@@ -18,8 +17,8 @@
     )
   )
 
-(defun reset-instance (class singleton-class)
-  (setf (slot-value class 'instance) nil)
+(defun reset-instance (class)
+  (setf (slot-value (find-class class) 'instance) nil)
   )
 
 
@@ -43,7 +42,7 @@
 
 (setf foo (make-instance 'test))
 (setf bar (make-instance 'test))
-;(reset-instance 'test)
+(reset-instance 'test)
 ; Bizarrement, si fizz et buzz sont définis en dehors du fichier
 ; alors que foo et bar y sont, leurs instances seront différentes.
 (setf fizz (make-instance 'test))
