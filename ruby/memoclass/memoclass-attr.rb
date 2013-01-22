@@ -2,6 +2,8 @@
 #---------------------------------------------------------------------
 # Syntaxe de Ruby (pour le @@) : http://overapi.com/static/cs/RubyCheat.pdf
 
+require '../inspector/inspector'
+
 # La classe qui mémorise ses instances. Sa méta-classe est la classe des classes qui mémorisent leurs instances.
 class Memo
   # Stockage des instances. @@ = variable de classe.
@@ -38,11 +40,24 @@ b.talk
 p Memo.last_instance
 p Memo.all_instances
 
-test = []
-p test
-test << "ds"
-test << String
-p test
-p test[0]
-p test[1]
-test[0].see
+class Person < Memo
+  def initialize name, job
+    super()
+    @name = name
+    @job = job
+  end
+end
+
+class Student < Person
+  def initialize name
+    super name, "Student"
+  end
+end
+
+tom = Student.new "Tom"
+lea = Student.new "Lea"
+eve = Person.new "Eve", "Scientist"
+
+
+p Memo.last_instance
+p Memo.all_instances

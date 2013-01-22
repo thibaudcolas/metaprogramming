@@ -3,7 +3,7 @@
 # Inspecteur en Ruby : inspection et navigation de la hiérarchie d'objets.
 #---------------------------------------------------------------------
 
-require './xmlserializer'
+require '../inspector/xmlserializer'
 require 'yaml'
 
 # Nécessaire pour avoir la méthode singleton_class dans Ruby < 1.9.1.

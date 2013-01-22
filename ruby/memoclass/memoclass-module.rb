@@ -72,3 +72,18 @@ aa = MemoBis.new
 bb = MemoBis.new
 
 p MemoBis.all_instances
+
+class Person
+  include Memo
+
+  def initialize name, job
+    @name = name
+    @job = job
+  end
+end
+
+tom = Person.new "Tom", "Student"
+lea = Person.new "Lea", "Student"
+eve = Person.new "Eve", "Scientist"
+
+p Person.all_instances
