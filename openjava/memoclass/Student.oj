@@ -1,4 +1,5 @@
 // Classe Student dont la métaclasse est MemoClass.
+// Sans le instantiates, les Student seraient considérés comme des Person pour la MemoClass.
 public class Student instantiates MemoClass extends Person {
 
   public int studentNumber;
@@ -8,6 +9,7 @@ public class Student instantiates MemoClass extends Person {
     this.studentNumber = studentNumber;
   }
 
+  // Cette classe sera dans le affInstances.
   public void study(String something) {
     System.out.println("I study " + something + ".");
   }
@@ -16,6 +18,7 @@ public class Student instantiates MemoClass extends Person {
     Student joe = new Student("Black", "Joe", 500);
     Student lea = new Student("Gillmore", "Pat", 3453);
 
+    // Appel d'une méthode de la métaclasse.
     affInstances();
   }
 

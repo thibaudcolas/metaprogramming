@@ -8,6 +8,7 @@ public class Person instantiates MemoClass {
 		this.firstName = firstName;
 	}
 
+	// Cette méthode sera visible dans la liste affichée par affInstances.
 	public void eat(String something) {
 		System.out.println(this.firstName + " eats " + something + ".");
 	}

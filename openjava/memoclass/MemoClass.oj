@@ -2,12 +2,14 @@ import openjava.mop.*;
 import openjava.ptree.*;
 import openjava.syntax.*;
 
-
+/**
+ * MemoClass : la classe des classes (instantiates Metaclass) qui se souviennent de leurs instances.
+ */
 public class MemoClass instantiates Metaclass extends OJClass {
 
     public void translateDefinition() throws MOPException {
 
-			// file:///Users/Will/Desktop/Nouveau%20dossier/openJava/final/OpenJava_1.1/htdocs/openjava/mop/OJField.html
+    	// On définit un attribut instances pour la classe actuelle, un private static String.
 			// private static java.lang.String instances;
 			OJField instances = new OJField(this, OJModifier.forModifier(OJModifier.STATIC).add(OJModifier.PRIVATE), OJSystem.STRING, "instances");
 			addField(instances);
@@ -17,7 +19,7 @@ public class MemoClass instantiates Metaclass extends OJClass {
 			// System.out.println( instances );
 			affInstancesBody.add(makeStatement("System.out.println( instances );"));
 
-			// file:///Users/Will/Desktop/Nouveau%20dossier/openJava/final/OpenJava_1.1/htdocs/openjava/mop/OJMethod.html
+			// On définit une méthode affInstances en public static qui renvoit void et dont le corps est affInstancesBody.
 			// public static void affInstances() { System.out.println( instances ); }
 			OJMethod affInstances = new OJMethod(this, OJModifier.forModifier(OJModifier.STATIC).add(OJModifier.PUBLIC), OJSystem.VOID, "affInstances", new ParameterList(), null, affInstancesBody);
 			addMethod(affInstances);
@@ -38,6 +40,7 @@ public class MemoClass instantiates Metaclass extends OJClass {
 					)
 				);
 
+			// Ajout de l'instanciation tardive dans la liste de code.
 			StatementList instancesManager = new StatementList();
 			instancesManager.add(lazyInstantiation);
 
@@ -51,6 +54,7 @@ public class MemoClass instantiates Metaclass extends OJClass {
 
 			instancesManager.add(instanceClassName);
 
+			// Ajout des attributs de l'instance courante.
 			OJField[] fields = getAllFields();
 			String fieldName;
 			for (int i = 0; i < fields.length; i++) {
@@ -62,6 +66,7 @@ public class MemoClass instantiates Metaclass extends OJClass {
 				}
 			}
 
+			// Ajout des méthodes de l'instance courante.
 			OJMethod[] methods = getDeclaredMethods();
 			String methodName;
 			for (int i = 0; i < methods.length; i++) {
@@ -72,12 +77,12 @@ public class MemoClass instantiates Metaclass extends OJClass {
 			}
 
 			ExpressionStatement instanceClassNameEnd = new ExpressionStatement(new AssignmentExpression(new FieldAccess(this, "instances"), "+=", Literal.makeLiteral("},\\n")));
-
 			instancesManager.add(instanceClassNameEnd);
 
 			// Pour tous les constructeurs de la classe,
 			OJConstructor[] constructor = getDeclaredConstructors();
 		  for (int i = 0; i < constructor.length; i++) {
+		  	// On ajoute dans le corps du constructeur notre management d'instances.
 				constructor[i].getBody().addAll(instancesManager);
 			}
     }
