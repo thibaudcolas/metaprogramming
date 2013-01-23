@@ -2,8 +2,6 @@
 #---------------------------------------------------------------------
 # Syntaxe de Ruby (pour le @@) : http://overapi.com/static/cs/RubyCheat.pdf
 
-require '../inspector/inspector'
-
 # La classe qui mémorise ses instances. Sa méta-classe est la classe des classes qui mémorisent leurs instances.
 class Memo
   # Stockage des instances. @@ = variable de classe.

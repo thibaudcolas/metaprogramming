@@ -1,4 +1,4 @@
-// Classe Student dont la métaclasse est MemoClass.
+ // Classe Student dont la métaclasse est MemoClass.
 // Sans le instantiates, les Student seraient considérés comme des Person pour la MemoClass.
 public class Student instantiates MemoClass extends Person {
 

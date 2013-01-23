@@ -35,7 +35,7 @@ public class MemoClass instantiates Metaclass extends OJClass {
 					new ExpressionStatement(
 						new AssignmentExpression(
 							// Personne.instances = new java.lang.String( "" );
-							new FieldAccess(this, "instances"), "AssignmentExpression.EQUALS", new AllocationExpression(OJSystem.STRING, new ExpressionList(Literal.constantEmptyString())))
+							new FieldAccess(this, "instances"), AssignmentExpression.EQUALS, new AllocationExpression(OJSystem.STRING, new ExpressionList(Literal.constantEmptyString())))
 						)
 					)
 				);
