@@ -7,13 +7,13 @@ Langages utilisés :
 - Java
 - Ruby
 - OpenJava
+- Smalltalk
 
 Autres langages possibles :
 - Objective-C
 - Python
 - Javassist
 - OpenC++
-- Smalltalk
 - Scala
 
 Expérimentations réalisées :
@@ -144,3 +144,11 @@ En OpenJava, les mémo-classes sont simulées en créant une méta-classe qui aj
 1. [MemoClass.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/MemoClass.oj)
 2. [Person.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/Person.oj)
 3. [Student.oj](https://github.com/ThibWeb/metaprogramming/blob/master/openjava/memoclass/Student.oj)
+
+## Smalltalk ##
+
+MOP très puissant sur lequel se sont basés Ruby et Objective-C.
+
+### Mémo-classes ###
+
+- [memoclass.st](https://github.com/ThibWeb/metaprogramming/blob/master/smalltalk/memoclass/memoclass.st)
