@@ -8,10 +8,23 @@ Langages utilisés :
 - Ruby
 - OpenJava
 
+Autres langages possibles :
+- Objective-C
+- Python
+- Javassist
+- OpenC++
+- Smalltalk
+- Scala
+
 Expérimentations réalisées :
 - Design pattern singleton
 - Classes qui mémorisent leurs instances (mémo-classes)
 - Inspecteur d'objets
+
+Commentaires :
+- L'important c'est de comprendre ce que la syntaxe retranscrit
+- L'inspecteur d'objets doit être un outil de développement quotidien
+- L'inspecteur d'objets doit pouvoir inspecter classes et objets
 
 ## CLOS ##
 
@@ -37,7 +50,9 @@ CLOS tire parti des méta-classes pour stocker les instances de chaque classe é
 
 ### Inspecteur d'objets ###
 
-TODO
+Un inspecteur d'objets tire parti du MOP pour afficher des informations sur chaque objet qui lui est donné et parcourir leur hiérarchie.
+
+- [inspector.lisp](https://github.com/ThibWeb/metaprogramming/blob/master/clos/inspector/inspector.lisp)
 
 ## Java ##
 
@@ -64,6 +79,11 @@ Objectif : Définir la classe `memo-class` des classes qui mémorisent leurs ins
 - [MemoObject.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/memoclass/MemoObject.java)
 
 ### Inspecteur d'objets ###
+
+Affichage des propriétés d'un objet donné, séparant ses attributs hérités de ses attributs introduits, ses méthodes héritées de ses méthodes introduites.
+
+- [Inspector.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/inspector/Inspector.java)
+- [Test.java](https://github.com/ThibWeb/metaprogramming/blob/master/java/inspector/Test.java)
 
 ## Ruby ##
 
