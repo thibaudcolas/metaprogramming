@@ -21,11 +21,6 @@ Expérimentations réalisées :
 - Classes qui mémorisent leurs instances (mémo-classes)
 - Inspecteur d'objets
 
-Commentaires :
-- L'important c'est de comprendre ce que la syntaxe retranscrit
-- L'inspecteur d'objets doit être un outil de développement quotidien
-- L'inspecteur d'objets doit pouvoir inspecter classes et objets
-
 ## CLOS ##
 
 CLOS (Common Lisp Object System) est un ensemble d'opérateurs pour faire de la programmation orientée objets en Lisp. Ces opérateurs ne sont pas séparés du reste de Common Lisp mais historiquement on les regroupe tout de même.
